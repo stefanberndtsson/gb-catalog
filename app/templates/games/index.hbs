@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">{{#link-to 'games.index'}}All games{{/link-to}}</div>
+  </div>
+  <div class="panel-body">
+    <ul class="pagination">
+      {{#if prevPage}}
+      <li><a href="#" {{action 'getPage' prevPage}}>&laquo;</a></li>
+      {{else}}
+      <li class="disabled"><a>&laquo;</a></li>
+      {{/if}}
+      {{#each pageArray}}
+      <li {{bind-attr class="active"}}><a href="#" {{action 'getPage' page}}>{{page}}</a></li>
+      {{/each}}
+      <li></li>
+      {{#if nextPage}}
+      <li><a href="#" {{action 'getPage' nextPage}}>&raquo;</a></li>
+      {{else}}
+      <li class="disabled"><a>&raquo;</a></li>
+      {{/if}}
+    </ul>
+    <table class="table">
+      <thead>
+	<tr>
+	  <th>Title</th>
+	  <th>Copies</th>
+	  <th>Note</th>
+	</tr>
+      </thead>
+      <tbody>
+	{{#each}}
+	<tr>
+	  <td>{{#link-to 'games.show' id}}{{title}}{{/link-to}}</td>
+	  <td>{{cartridge_count}}</td>
+	  <td>{{note}}</td>
+	</tr>
+	{{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
