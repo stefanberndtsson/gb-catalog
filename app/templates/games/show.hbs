@@ -8,8 +8,15 @@
     <div class="clearfix"></div>
   </div>
   <div class="panel-body">
-    {{#if model.note}}
-    <p>{{model.note}}</p>
+    <h2>{{model.title}}</h2>
+    {{#if editingNote}}
+      {{textarea cols="40" rows="3" value=model.note}}<br/>
+      <button class="btn btn-default" {{action 'updateNote'}}>Save</button>
+    {{else}}
+      {{#if model.note}}
+        <p>{{model.note}}</p>
+        <button class="btn btn-default" {{action 'editNote'}}>Edit</button>
+      {{/if}}
     {{/if}}
     <h4>Cartridges</h4>
     <table class="table">
