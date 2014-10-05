@@ -6,7 +6,7 @@ export default Ember.ArrayController.extend({
     sortProperties: ['title'],
     prevPage: function() {
 	var page = this.get('model.meta.pagination.page');
-	if(page == 1) {
+	if(page === 1) {
 	    return null;
 	}
 	return page - 1;
@@ -14,7 +14,7 @@ export default Ember.ArrayController.extend({
     nextPage: function() {
 	var page = this.get('model.meta.pagination.page');
 	var pages = this.get('model.meta.pagination.pages');
-	if(page == pages) {
+	if(page === pages) {
 	    return null;
 	}
 	return page + 1;
@@ -23,7 +23,7 @@ export default Ember.ArrayController.extend({
 	var pArray = [];
 	for(var i=0;i<this.get('model.meta.pagination.pages');i++) {
 	    var p = {page: i+1};
-	    if(this.get('model.meta.pagination.page') == i+1) {
+	    if(this.get('model.meta.pagination.page') === i+1) {
 		p['active'] = true;
 	    }
 	    pArray.push(p);
