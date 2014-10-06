@@ -31,12 +31,5 @@ export default Ember.ArrayController.extend({
 	return Ember.ArrayProxy.create({content: Ember.A(pArray)});
     }.property('model.meta.pagination.pages', 'model.meta.pagination.page'),
     actions: {
-	getPage: function(page) {
-	    var controller = this;
-	    controller.store.find('game', {page: page}).then(function(model) {
-		controller.set('model', model);
-		controller.transitionToRoute('games.index', {queryParams: {page: page}});
-	    });
-	}
     }
 });
