@@ -14,7 +14,7 @@
       <button class="btn btn-default" {{action 'updateNote'}}>Save</button>
     {{else}}
       {{#if model.note}}
-        <p>{{model.note}}</p>
+        <p>{{markdown-text model.note}}</p>
         <button class="btn btn-default" {{action 'editNote'}}>Edit</button>
       {{/if}}
     {{/if}}
